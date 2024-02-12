@@ -1,5 +1,6 @@
+# Repositório clonado de [especializati/setup-docker-laravel](htttps://github.com/especializati/setup-docker-laravel) na branch "laravel-10-com-php-8.1".
 
-# Setup Docker Laravel 10 com PHP 8.1
+## Setup Docker Laravel 10 com PHP 8.1
 [Assine a Academy, e Seja VIP!](https://academy.especializati.com.br)
 
 ### Passo a passo
