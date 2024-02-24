@@ -28,14 +28,13 @@ services:
             - laravel
 
     # db postgres
-    db:
+    postgres:
         image: postgres:latest
         restart: unless-stopped
         environment:
-            MYSQL_DATABASE: ${DB_DATABASE:-curso_laravel_especializati}
-            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-[_netozicadb_docker_postgres_]}
-            MYSQL_PASSWORD: ${DB_PASSWORD:-[_postgres_bob_user_docker_]}
-            MYSQL_USER: ${DB_USERNAME:-bob}
+            POSTGRES_DATABASE: ${DB_DATABASE:-curso_laravel_especializati}
+            POSTGRES_PASSWORD: ${DB_PASSWORD:-[_postgres_bob_user_docker_]}
+            POSTGRES_USER: ${DB_USERNAME:-bob}
         volumes:
             - postgres_data:/var/lib/postgresql/data
         ports:
