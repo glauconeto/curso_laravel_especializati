@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('title', 'Listagem dos Usuários')
-@endsection
 
 @section('content')
-    <p>Listagem de Usuários</p>
+    <h1>
+        Listagem de Usuários
+        (<a href="{{route('users.create')}}">+</a>)
+    </h1>
 
     <ul>
         @foreach($users as $user)
