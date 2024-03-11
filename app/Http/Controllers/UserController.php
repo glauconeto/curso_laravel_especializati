@@ -50,10 +50,23 @@ class UserController extends Controller
     /**
      * Armazena os dados vindos do formulário.
      * 
-     * @return 
+     * @param Request $request
+     * @return void
      */
-    public function store()
+    public function store(Request $request)
     {
-        dd('cadastrando o usuário');
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
+
+        $user = User::create($data);
+
+        return redirect()->route('users.index');
+        // return redirect('users.show', $user->id);
+
+        // $user = new User;
+        // $user->name = $request->name;
+        // $user->email = $request->email;
+        // $user->password = $request->password;
+        // $user->save();
     }
 }
