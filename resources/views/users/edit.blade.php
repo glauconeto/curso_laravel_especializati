@@ -19,7 +19,7 @@
         @csrf
         <input type="text" name="name" placeholder="Nome: " value="{{ $user->name }}" required>
         <input type="email" name="email" placeholder="E-mail: " value="{{ $user->email }}" required>
-        <input type="password" name="password" placeholder="Senha: " value="" required>
+        <input type="password" name="password" placeholder="Senha: " value="">
         <button type="submit">Enviar
     </form>
 @endsection
