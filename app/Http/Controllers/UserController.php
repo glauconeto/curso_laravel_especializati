@@ -33,7 +33,6 @@ class UserController extends Controller
 
         if (!$user = User::find($id))
             return redirect()->route('users.show');
-
         
         return view('users.show', compact('user'));
     }
@@ -69,5 +68,23 @@ class UserController extends Controller
         // $user->email = $request->email;
         // $user->password = $request->password;
         // $user->save();
+    }
+
+    public function edit($id)
+    {
+        if (!$user = User::find($id))
+            return redirect()->route('users.index');
+
+        return view('users.edit', compact('user'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = $request->all();
+
+        if (!$user = User::find($id))
+            return redirect()->route('users.show');
+
+        dd($request->all());
     }
 }
