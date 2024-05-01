@@ -13,9 +13,15 @@ class UserController extends Controller
      * 
      * @return void
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
+        $search = $request->search;
+        $users = User::where(function ($query) use ($search) {
+            if ($search) {
+                $query->where('email', $search);
+                $query->orWhere('name', 'LIKE', "%{$search}%");
+            }
+        })->get();
 
         return view('users.index', compact('users'));
     }
@@ -91,6 +97,24 @@ class UserController extends Controller
             $data['password'] = bcrypt($request->password);
 
         $user->update($data);
+
+        return redirect()->route('users.index');
+    }
+
+    /**
+     * Remove um usuário dos registros.
+     * 
+     * @param int $id
+     * @return void redirect
+     */
+    public function destroy(int $id)
+    {
+        $user = User::find($id);
+
+        if (!$user = User::find($id))
+            return redirect()->route('users.show');
+
+        $user->delete();
 
         return redirect()->route('users.index');
     }
