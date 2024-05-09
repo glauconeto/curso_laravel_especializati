@@ -5,21 +5,9 @@
 @section('content')
 <h1>Editar usuário {{ $user->name }}</h1>
 
-@if ($errors->any())
-    <ul class="errors">
-        @foreach ($errors->all() as $error)
-            <li class="error">{{  $error  }}</li>
-        @endforeach
-    </ul>
-@endif
-
-    <h1>Novo Usuário</h1>
+    @include('includes.validation_form')
     <form action="{{ route('users.update', $user->id) }}" method="post">
         @method('PUT')
-        @csrf
-        <input type="text" name="name" placeholder="Nome: " value="{{ $user->name }}" required>
-        <input type="email" name="email" placeholder="E-mail: " value="{{ $user->email }}" required>
-        <input type="password" name="password" placeholder="Senha: " value="">
-        <button type="submit">Enviar
+        @include('users._partials.form')       
     </form>
 @endsection
