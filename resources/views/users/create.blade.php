@@ -3,11 +3,17 @@
 @section('title', 'Novo Usuários')
 
 @section('content')
-<h1>Criar usuário</h1>
+<h1 class="w-full text-3xl text-black pb-6">
+    Adicionar Novo Usuário
+</h1>
 
-    <h1>Novo Usuário</h1>
-    <form action="{{ route('users.store') }}" method="post">
-        @csrf
-        @include('users._partials.form')
-    </form>
+<div class="flex flex-wrap">
+    <div class="w-full my-6 pr-0 lg:pr-2">
+        <div class="leading-loose">
+            <form class="p-10 bg-white rounded shadow-xl" action="{{ route('users.store') }}" method="POST">
+                @include('admin.users._partials.form')
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
