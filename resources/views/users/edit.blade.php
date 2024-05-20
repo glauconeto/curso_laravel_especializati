@@ -12,7 +12,7 @@
         <div class="leading-loose">
             <form class="p-10 bg-white rounded shadow-xl" action="{{ route('users.update', $user->id) }}" method="POST">
                 @method('PUT')
-                @include('admin.users._partials.form')
+                @include('users._partials.form')
             </form>
         </div>
     </div>
