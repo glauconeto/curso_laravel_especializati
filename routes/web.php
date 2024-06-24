@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('/users/{id}/comments', [CommentController::class, 'index'])->name('comments.create');
+Route::get('/users/{id}/comments/create', [CommentController::class, 'index'])->name('comments.create');
+Route::get('/users/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');

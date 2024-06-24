@@ -5,7 +5,7 @@
 @section('content')
 <h1 class="text-2xl font-semibold leading-tigh py-2">
     Listagem dos usuários
-    <a href="{{ route('users.create') }}" class="bg-blue-900 rounded-full text-white px-4 text-sm">+</a>
+    <a href="{{ route('comments.create', $user->id) }}" class="bg-blue-900 rounded-full text-white px-4 text-sm">+</a>
 </h1>
 
 <form action="{{ route('users.index') }}" method="get" class="py-5">
